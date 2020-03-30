@@ -25,7 +25,10 @@ class MainActivity : AppCompatActivity() {
          car1.drive()
          car2.drive()*/
         val component = (application as ExampleApp).getAppComponent()
-            .getActivityComponent(DieselEngineModule(100))
+            .getActivityComponentBuilder()
+            .horsePower(100)
+            .capacityEngine(120)
+            .build()
         component.inject(this)
         car1.drive()
         car2.drive()

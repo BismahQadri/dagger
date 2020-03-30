@@ -8,12 +8,12 @@ import dagger.Subcomponent
 import javax.inject.Named
 
 @PerActivity
-@Subcomponent( modules = [WheelsModule::class, DieselEngineModule::class])
+@Subcomponent( modules = [WheelsModule::class, PetrolEngineModule::class])
 interface ActivityComponent {
     fun getCar(): Car
     fun inject(mainActivity: MainActivity)
 
-   /* @Component.Builder
+    @Subcomponent.Builder
     interface Builder {
         @BindsInstance
         fun horsePower(@Named ("horse power") horsePower: Int): Builder
@@ -21,8 +21,7 @@ interface ActivityComponent {
         @BindsInstance
         fun capacityEngine(@Named ("engine capacity") capacityEngine: Int): Builder
 
-        fun appComponent(component: AppComponent): Builder
 
         fun build(): ActivityComponent
-    }*/
+    }
 }
