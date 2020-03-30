@@ -2,9 +2,9 @@ package com.example.dagger.thirdparty
 
 import android.util.Log
 
-public class Tires {
+class Tires {
 
- public fun inflate() {
+ fun inflate() {
      Log.e("Car","Tires inflated")
  }
 }
