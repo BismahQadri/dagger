@@ -1,4 +1,4 @@
-package com.example.dagger
+package com.example.dagger.car
 
 interface Engine  {
     fun start()
