@@ -25,10 +25,8 @@ class MainActivity : AppCompatActivity() {
          car1.drive()
          car2.drive()*/
         val component = (application as ExampleApp).getAppComponent()
-            .getActivityComponentBuilder()
-            .horsePower(100)
-            .capacityEngine(120)
-            .build()
+            .getActivityComponentFactory()
+            .create(100, 120)
         component.inject(this)
         car1.drive()
         car2.drive()

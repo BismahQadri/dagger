@@ -17,6 +17,6 @@ class Car @Inject constructor(
 
     fun drive() {
         engine.start()
-        Log.e("Car", "$driver drives $this")
+        Log.e("Car", "$driver ${driver.name} drives $this")
     }
 }
