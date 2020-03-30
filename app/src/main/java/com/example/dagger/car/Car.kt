@@ -1,8 +1,9 @@
 package com.example.dagger.car
 
 import android.util.Log
+import com.example.dagger.dagger.PerActivity
 import javax.inject.Inject
-
+@PerActivity
 class Car @Inject constructor(
     private var driver: Driver,
     private var engine: Engine,

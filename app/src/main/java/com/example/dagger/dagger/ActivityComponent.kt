@@ -5,11 +5,10 @@ import com.example.dagger.car.Car
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
-import javax.inject.Singleton
 
-@Singleton
-@Component(modules = [WheelsModule::class, PetrolEngineModule::class])
-interface CarComponent {
+@PerActivity
+@Component(dependencies = [AppComponent::class], modules = [WheelsModule::class, PetrolEngineModule::class])
+interface ActivityComponent {
     fun getCar(): Car
     fun inject(mainActivity: MainActivity)
 
@@ -21,6 +20,8 @@ interface CarComponent {
         @BindsInstance
         fun capacityEngine(@Named ("engine capacity") capacityEngine: Int): Builder
 
-        fun build(): CarComponent
+        fun appComponent(component: AppComponent): Builder
+
+        fun build(): ActivityComponent
     }
 }
