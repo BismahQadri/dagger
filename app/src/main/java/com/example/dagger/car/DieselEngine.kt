@@ -3,7 +3,7 @@ package com.example.dagger.car
 import android.util.Log
 import javax.inject.Inject
 
-class DieselEngine  constructor(private val  horsePower: Int) : Engine {
+class DieselEngine @Inject constructor(private val  horsePower: Int) : Engine {
 
 
     override fun start() {

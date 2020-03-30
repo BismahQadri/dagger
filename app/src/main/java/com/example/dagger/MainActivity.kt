@@ -15,9 +15,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //val component = DaggerCarComponent.create() // when no arguments is taken by module in app , we use create
-        val component = DaggerCarComponent.builder()
+     /*   val component = DaggerCarComponent.builder()
                             .dieselEngineModule(DieselEngineModule(100))
-                            .build()
+                            .build()*/
+        val component = DaggerCarComponent.builder()
+            .horsePower(100)
+            .capacityEngine(120)
+            .build()
         component.inject(this)
         // car = component.getCar()
         car.drive()

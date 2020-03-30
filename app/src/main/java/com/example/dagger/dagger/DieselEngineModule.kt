@@ -9,10 +9,15 @@ import dagger.Provides
 @Module
  class DieselEngineModule(private val horsePower: Int) {
 
+
+    @Provides
+    fun provideHorsePower() : Int {
+        return horsePower
+    }
     /*@Binds
     abstract fun bindEngine(engine: DieselEngine): Engine*/
     @Provides
-     fun provideEngine(): Engine {
-        return DieselEngine(horsePower)
+     fun provideEngine(engine: DieselEngine): Engine {
+        return engine
     }
 }
