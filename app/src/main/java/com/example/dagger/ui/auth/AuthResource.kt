@@ -21,7 +21,7 @@ class AuthResource<T>(val status: AuthStatus, val data: T?, val message: String?
             return AuthResource(AuthStatus.LOADING, data, null)
         }
 
-        fun <T> logout(): AuthResource<Any?> {
+        fun <T> logout(): AuthResource<T> {
             return AuthResource(AuthStatus.NOT_AUTHENTICATED, null, null)
         }
     }
