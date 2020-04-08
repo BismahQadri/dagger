@@ -11,13 +11,14 @@ import com.example.dagger.ui.auth.AuthResource
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-abstract public class BaseActivity : DaggerAppCompatActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        subscribeObservers()
     }
 
     private fun subscribeObservers() {
