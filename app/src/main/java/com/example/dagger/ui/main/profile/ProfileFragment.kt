@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.dagger.R
+import com.example.dagger.SessionManager
 import com.example.dagger.models.User
 import com.example.dagger.ui.auth.AuthResource
 import com.example.dagger.viewmodels.ViewModelProviderFactory
@@ -20,6 +21,8 @@ class ProfileFragment : DaggerFragment() {
 
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
+    @Inject
+    lateinit var sessionManager: SessionManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +35,8 @@ class ProfileFragment : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Toast.makeText(context, "Profile Fragment", Toast.LENGTH_SHORT).show()
         viewModel = ViewModelProvider(this, providerFactory).get(ProfileViewModel::class.java)
-        subscribeObservers()
+        setUserDetails(sessionManager.cachedUser.value?.data)
+        //subscribeObservers()
     }
 
     private fun subscribeObservers() {
